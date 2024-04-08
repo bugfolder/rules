@@ -181,6 +181,14 @@ ul.rules-autocomplete .rules-dsac-group {
   background-color: #eee;
 }
 
+ul.rules-autocomplete .rules-dsac-group {
+  background-color: #eee;
+}
+
+ul.rules-autocomplete .rules-dsac-item {
+  display: inline;
+}
+
 ul.rules-autocomplete .ui-corner-all {
   -moz-border-radius: 0px;
 }
