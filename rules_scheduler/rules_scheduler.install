@@ -114,11 +114,11 @@ function rules_scheduler_update_1200() {
 function rules_scheduler_update_1201() {
   $view = views_get_view('rules_scheduler');
   if (!$view) {
+    $config = config('views.view.rules_scheduler');
     global $base_url;
     $filename = $base_url . '/' . backdrop_get_path('module', 'rules_scheduler') . '/config/views.view.rules_scheduler.json';
     $data = backdrop_json_decode(file_get_contents($filename));
-    module_load_include('inc', 'config', 'config.sync');
-    config_sync_file('views.view.rules_scheduler', 'create', $data);
-    views_invalidate_cache();
+    $config->setData($data);
+    $config->save();
   }
 }
