@@ -426,7 +426,12 @@ class RulesDataUIDate extends RulesDataUIText {
    * Implements RulesDataDirectInputFormInterface::render().
    */
   public static function render($value) {
-    $value = is_numeric($value) ? format_date($value, 'short') : check_plain($value);
+    if (is_numeric($value)) {
+      $value = format_date($value, 'short', '', 'GMT') . ' (' . t('GMT') . ')';
+    }
+    else {
+      $value = check_plain($value);
+    }
     return array(
       'content' => array('#markup' => $value),
       '#attributes' => array('class' => array('rules-parameter-date')),
