@@ -452,6 +452,9 @@ class RulesPluginUI extends FacesExtender implements RulesPluginUIInterface {
     $form['settings']['name'] = array(
       '#type' => 'machine_name',
       '#default_value' => isset($machine_name) ? $machine_name : '',
+      // This field should stay LTR even for RTL languages.
+      '#field_prefix' => '<span dir="ltr">rules_',
+      '#field_suffix' => '</span>&lrm;',
       // The string 'rules_' is pre-pended to machine names, so the
       // maxlength must be less than the field length of 64 characters.
       '#maxlength' => 58,
