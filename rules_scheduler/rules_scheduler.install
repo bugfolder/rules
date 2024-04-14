@@ -107,3 +107,18 @@ function rules_scheduler_update_1200() {
     ));
   }
 }
+
+/**
+ * Install Rules Schedule view if missing.
+ */
+function rules_scheduler_update_1201() {
+  $view = views_get_view('rules_scheduler');
+  if (!$view) {
+    $config = config('views.view.rules_scheduler');
+    global $base_url;
+    $filename = $base_url . '/' . backdrop_get_path('module', 'rules_scheduler') . '/config/views.view.rules_scheduler.json';
+    $data = backdrop_json_decode(file_get_contents($filename));
+    $config->setData($data);
+    $config->save();
+  }
+}
