@@ -176,8 +176,8 @@ function rules_test_rules_action_info() {
       'parameter' => array(
          // For references working right, we need a data type with a wrapper.
         'arg' => array('type' => 'test'),
-        'group' => t('Rules test'),
       ),
+      'group' => t('Rules test'),
     ),
     'rules_action_load_node' => array(
       'label' => t('Fetch content by id'),
