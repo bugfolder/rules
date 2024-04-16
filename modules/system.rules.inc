@@ -246,7 +246,7 @@ function rules_system_action_info() {
         'reply_to' => array(
           'type' => 'text',
           'label' => t('Reply-to'),
-          'description' => t('Reply-to address (same for as To)'),
+          'description' => t('Reply-to address (same form as To)'),
           'translatable' => TRUE,
           'optional' => TRUE,
           'allow null' => TRUE,
@@ -311,7 +311,7 @@ function rules_system_action_info() {
         'reply_to' => array(
           'type' => 'text',
           'label' => t('Reply-to'),
-          'description' => t('Reply-to address (same for as To)'),
+          'description' => t('Reply-to address (same form as To)'),
           'translatable' => TRUE,
           'optional' => TRUE,
           'allow null' => TRUE,
