@@ -741,6 +741,16 @@ function rules_ui_import_file_form_validate($form, &$form_state)
  */
 function rules_ui_import_file_form_submit($form, &$form_state) {
   $rules_config = $form_state['rules_config'];
+
+  if ($existing_config = rules_config_load($rules_config->name)) {
+    // Copy DB id and remove the new indicator to overwrite the existing record.
+    $rules_config->id = $existing_config->id;
+    // Set the ENTITY_CUSTOM bit in the status bitmask, because the
+    // configuration has now been customized by the import.
+    $rules_config->status = $existing_config->status | ENTITY_CUSTOM;
+    unset($rules_config->is_new);
+  }
+  $rules_config->save();
   $vars = array('@entity' => t('Rules configuration'), '%label' => $rules_config->label());
   watchdog('rules_config', 'Imported @entity %label.', $vars);
   backdrop_set_message(t('Imported @entity %label.', $vars));
