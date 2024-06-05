@@ -682,6 +682,7 @@ function rules_ui_import_file_form($form, &$form_state, $base_path) {
     '#type' => 'file',
     '#title' => t('Import - upload'),
     '#description' => t('Upload a Rules configuration file.'),
+    '#required' => TRUE,
   );
   $form['overwrite'] = array(
     '#title' => t('Overwrite'),
